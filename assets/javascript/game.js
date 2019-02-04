@@ -1,4 +1,4 @@
-function makeid() {
+function computerLetterPicker() {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   
@@ -8,12 +8,12 @@ function makeid() {
     return text;
   }
   
-   let guess = makeid();
+   let guess = computerLetterPicker();
   
     if (guess === "k") {
-      console.log("It was " + makeid() + "! You win!");
+      console.log("It was " + computerLetterPicker() + "! You win!");
   }
     else {
-      console.log("It was " + makeid() + "! You lose!");
+      console.log("It was " + computerLetterPicker() + "! You lose!");
   }
   

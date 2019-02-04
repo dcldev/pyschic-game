@@ -1,15 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en-us">
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Pyschic Word Game</title>
 
-    <script src="assets\javascript\game.js"></script>
-
-</head>
-<body>
+  </head>
+  
+  <body>
     
-</body>
+    <div id="guessinggame">
+
+        <h1>Pyschic Word Game</h1>
+        <h2>Can you guess what letter the Computer is thinking?</h2>
+        <h1>Press any key to begin.</h1>
+        <p>User Wins: <span id="user-wins">0</span></p>
+        <p>User Losses: <span id="user-loss">0</span></p>
+        <p>Guesses Left: <span id="guesses-remaining">10</span></p>    
+        <p>Letters Used: <span id="used-letters"> </span></p>
+    
+    </div>
+
+      <script type ="text/javascript">
+
+        var computerChoices = "abcdefghijklmnopqrstuvwxyz";
+        var guessesRemaining = 10;
+        var usedLetters = [];
+        var userWins = 0;
+        var userLoss = 0;
+        
+        document.onkeyup = function() {
+            
+            var userGuess = event.key;
+            var gameOver = 0;
+            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        
+            prompt("What is your guess");
+        
+            alert("Computer's guess is " + computerGuess);
+    
+            if (userGuess === computerGuess) {
+                alert("You guessed correctly!") 
+                userWins++;
+            } else if (userGuess !== computerGuess) {
+                alert("Guess again!")
+                userLoss++ && guessesRemaining--;
+            } else { 
+                guessesRemaining < gameOver
+                alert("Game Over");
+            }
+            
+
+        var guessesRemainingElement = document.getElementById('guesses-remaining')
+        var userWinsElement = document.getElementById('user-wins')
+        var userLossElement = document.getElementById('user-loss')
+        
+        guessesRemainingElement.innerHTML = guessesRemaining;
+        userWinsElement.innerHTML = userWins;
+        userLossElement.innerHTML = userLoss;
+    
+        };
+
+    </script>
+
+
+  </body>
+
 </html>
